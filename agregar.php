@@ -14,23 +14,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom align-items-center">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
       <img class="img-camara" src="img/camara.png" width="75px" height="75px"/>
       <span class="fs-4">Campaña de Protestos</span>
       </a>
       <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" href="campaña.php">Inicio</a>
+    <a class="nav-link active text-dark" href="campaña.php">INICIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="agregar.php">Agregar</a>
+    <a class="nav-link text-dark" href="agregar.php" >AGREGAR</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-dark" href="pagare.php" >PAGARE</a>
   </li>
 </ul>
     </header>
 <form class="name"action="agregar.php" method="post">
 <div class="row g-2 justify-content-center">
-  <div class="col-sm-6 col-md-7">
+  <div class="col-sm-6 col-md-3">
   <label for="inputState" class="form-label">NOMBRE:</label>
     <input type="text" class="form-control" name="name" placeholder="" aria-label="City">
   </div>
@@ -38,7 +41,6 @@
   <label for="inputState" class="form-label">RUC JURIDICO:</label>
     <input type="number" class="form-control" name="rucju" placeholder="" aria-label="City">
   </div>
-  <div class="row g-2 justify-content-center">
   <div class="col-sm-5 col-md-2">
   <label for="inputState" class="form-label">RUC NATURAL:</label>
     <input type="number" class="form-control" name="rucnat" placeholder="" aria-label="City">
@@ -47,13 +49,13 @@
   <label for="inputState" class="form-label">DNI:</label>
     <input type="number" class="form-control" name="dni" placeholder="" aria-label="State">
   </div>
-    <div class="col-sm-6 col-md-5 justify-content-center">
+    <div class="col-sm-6 col-md-4 justify-content-center">
   <label for="inputdom" class="form-label">DOMICILIO:</label>
     <input type="text" class="form-control" name="dom" placeholder="" aria-label="City">
   </div>
-  <div class="col-sm-6 col-md-6 justify-content-center">
-  <label for="inputState" class="form-label">RAZON SOCIAL:</label>
-    <input type="text" class="form-control" name="razso" placeholder="" aria-label="City">
+  <div class="col-sm-5 col-md-3 justify-content-center">
+  <label for="inputState" class="form-label">ENTIDAD FINANCIERA:</label>
+    <input type="text" class="form-control" name="entidad" placeholder="" aria-label="City">
   </div>
   <div class="col-sm-6 col-md-1 justify-content-center">
     <label for="exampleFormControlSelect1">MONEDA:</label>
@@ -62,18 +64,36 @@
       <option>U$$</option>
     </select>
   </div>
-  <div class="col-sm-6 col-md-2 justify-content-center">
+  <div class="col-sm-7 col-md-1 justify-content-center">
   <label for="inputState" class="form-label">IMPORTE:</label>
     <input type="text" class="form-control" name="impo" placeholder="" aria-label="City">
   </div>
-  <div class="row g-2 justify-content-center">
+  <div class="row g-1 justify-content-center">
   <div class="col-sm-6 col-md-2 justify-content-center">
   <label for="inputState" class="form-label">FECHA:</label>
     <input type="date" class="form-control" name="fecha" placeholder="" aria-label="City">
   </div>
-  <div class="col-sm-6 col-md-4 justify-content-center">
+  <div class="col-sm-6 col-md-2 justify-content-center">
   <label for="inputState" class="form-label">CLASE:</label>
     <input type="text" class="form-control" name="clasee" placeholder="" aria-label="City">
+  </div>
+  <div class="col-sm-5 col-md-5 justify-content-center">
+  <label for="inputState" class="form-label">MOTIVO PROTESTO:</label>
+    <input type="text" class="form-control" name="motivo" placeholder="" aria-label="City">
+  </div>
+  <div class="row g-2 justify-content-center">
+  <div class="row-sm-6 col-md-2 justify-content-center">
+  <label for="inputState" class="form-label">NUM VALOR:</label>
+    <input type="number" class="form-control" name="num" placeholder="" aria-label="State">
+  </div>
+
+  <div class="col-sm-6 col-md-2 justify-content-center">
+  <label for="inputState" class="form-label">FECHA NOTIFICADA:</label>
+    <input type="date" class="form-control" name="fechanoti" placeholder="" aria-label="City">
+  </div>
+  <div class="col-sm-6 col-md-2 justify-content-center">
+  <label for="inputState" class="form-label">FECHA VENCIMIENTO:</label>
+    <input type="date" class="form-control" name="fechavenci" placeholder="" aria-label="City">
   </div>
   <div class="col-sm-6 col-md-3 justify-content-center">
   <label for="inputState" class="form-label">PROVEEDOR:</label>
@@ -96,16 +116,20 @@ if(isset($_POST['agregar'])){
   $rucnat = $_POST['rucnat'];
   $dni = $_POST['dni'];
   $dom = $_POST['dom'];
-  $razso = $_POST['razso'];
+  $entidad = $_POST['entidad'];
   $moneda = $_POST['moneda'];
   $impo = $_POST['impo'];
   $fecha = $_POST['fecha'];
   $clasee = $_POST['clasee'];
+  $num = $_POST['num'];
+  $motivo = $_POST['motivo'];
+  $fechanoti = $_POST['fechanoti'];
+  $fechavenci = $_POST['fechavenci'];
   $provee = $_POST['provee'];
 
-  $insertar="INSERT INTO  protestos(`RAZ SOC O NOM`,`RUC JURIDICO`,`RUC NATURAL`,DNI,DOMICILIO,`RAZ SOC`,MONEDA,
-  IMPORTE,`FECHA PROT`, CLASE, PROVEEDOR) VALUES('$name','$rucju','$rucnat','$dni','$dom','$razso','$moneda',
-  '$impo','$fecha','$clasee','$provee')";
+  $insertar="INSERT INTO  protestos(`RAZ SOC O NOM`,`RUC JURIDICO`,`RUC NATURAL`,DNI,DOMICILIO,`ENTIDAD FINANCIERA`,MONEDA,
+  IMPORTE,`FECHA PROTE`, CLASE, `NUM VALOR`, `MOTIVO PROTE`, `FECHA NOTI`,`FECHA VENCI`,PROVEEDOR) VALUES('$name','$rucju','$rucnat','$dni','$dom','$entidad','$moneda',
+  '$impo','$fecha','$clasee','$num','$motivo','$fechanoti','$fechavenci','$provee')";
 
 $resultado = mysqli_query($conexion,$insertar);
 

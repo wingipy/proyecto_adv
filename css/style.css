@@ -1,16 +1,1 @@
-*{
-    margin: 5px;
-    width: 4px;
-    height: 4px;
-}
-.img-camara{
-    width: 20px;
-    height: 1em;
-}
-.icono-chat.disabled {
-    color: #CCC;
-}
-.icono-chat.disabled:hover {
-    cursor: not-allowed;
-    text-decoration: none;
-}
+

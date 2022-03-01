@@ -22,6 +22,10 @@ if(isset($_POST['buscar'])){
       <th>IMPORTE</th>
       <th>FECHA PROT</th>
       <th>CLASE</th>
+      <th>NUM VALOR</th>
+      <th>MOTIVO PROTESTO</th>
+      <th>FECHA NOTI</th>
+      <th>FECHA VENCI</th>
       <th>PROVEEDOR</th>
     </thead>
     <tbody> 
@@ -45,6 +49,10 @@ while($mostrar=mysqli_fetch_array($resultado)){
         <td><?php echo $mostrar['IMPORTE'] ?></td>
         <td><?php echo $mostrar['FECHA PROT'] ?></td>
         <td><?php echo $mostrar['CLASE'] ?></td>
+        <td><?php echo $mostrar['NUM VALOR'] ?></td>
+        <td><?php echo $mostrar['MOTIVO PROTESTO'] ?></td>
+        <td><?php echo $mostrar['FECHA NOTI'] ?></td>
+        <td><?php echo $mostrar['FECHA VENCI'] ?></td>
         <td><?php echo $mostrar['PROVEEDOR'] ?></td>
       </tr>
 

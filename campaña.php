@@ -14,18 +14,20 @@ $conexion = mysqli_connect('localhost','root', '','campaña');
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom align-items-center">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
       <img class="img-camara" src="img/camara.png" width="75px" height="75px"/>
-      <span class="fs-4">Camara de comercio</span>
+      <span class="fs-4">Campaña de Protestos</span>
       </a>
       <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" href="campaña.php">Inicio</a>
+    <a class="nav-link active text-dark" href="campaña.php">INICIO</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="agregar.php">Agregar</a>
+    <a class="nav-link text-dark" href="agregar.php" >AGREGAR</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-dark" href="pagare.php" >PAGARE</a>
   </li>
 </ul>
     </header>
@@ -36,15 +38,22 @@ $conexion = mysqli_connect('localhost','root', '','campaña');
   <label for="inputState" class="form-label">NOMBRE:</label>
     <input type="text" class="form-control" name="name" placeholder="" aria-label="City">
   </div>
+  <div class="col-sm-6 col-md-2 justify-content-center">
+    <label for="exampleFormControlSelect1">ESTADO:</label>
+    <select class="form-control" name="estado" id="exampleFormControlSelect1">
+      <option>REGULARIZADO P</option>
+      <option>NO REGULARIZADO N</option>
+    </select>
+  </div>
   <div class="row g-3 justify-content-center">
-    <div class="col-md-6 col-md-5">
+    <div class="col-md-2 col-md-6">
     <div class="btn-group" role="group" aria-label="Basic example">
   <button type="submit" name="buscar" class="btn btn-secondary">BUSCAR</button>
 </div>
     </div>
 </form>
-<div class='sm-11 md-15 col-lg-11-responsive-12'><br>
-  <table class="table aling-items-center justify-content-center">
+<div class='responsive'><br>
+  <table class="table n-self-start">
     <thead class="text-muted">
       <th>ITEM</th>
       <th>NOMBRE O RAZ SOC</th>
@@ -52,11 +61,15 @@ $conexion = mysqli_connect('localhost','root', '','campaña');
       <th>RUC NATURAL</th>
       <th>DNI</th>
       <th>DOMICILIO</th>
-      <th>RAZON SOCIAL</th>
+      <th>ENTIDAD FINANCIERA</th>
       <th>MONEDA</th>
       <th>IMPORTE</th>
       <th>FECHA PROT</th>
       <th>CLASE</th>
+      <th>NUM VALOR</th>
+      <th>MOTIVO PROTESTO</th>
+      <th>FECHA NOTI</th>
+      <th>FECHA VENCI</th>
       <th>PROVEEDOR</th>
     </thead>
     <tbody> 
@@ -78,11 +91,15 @@ $conexion = mysqli_connect('localhost','root', '','campaña');
         <td><?php echo $mostrar['RUC NATURAL'] ?></td>
         <td><?php echo $mostrar['DNI'] ?></td>
         <td><?php echo $mostrar['DOMICILIO'] ?></td>
-        <td><?php echo $mostrar['RAZ SOC'] ?></td>
+        <td><?php echo $mostrar['ENTIDAD FINANCIERA'] ?></td>
         <td><?php echo $mostrar['MONEDA'] ?></td>
         <td><?php echo $mostrar['IMPORTE'] ?></td>
-        <td><?php echo $mostrar['FECHA PROT'] ?></td>
+        <td><?php echo $mostrar['FECHA PROTE'] ?></td>
         <td><?php echo $mostrar['CLASE'] ?></td>
+        <td><?php echo $mostrar['NUM VALOR'] ?></td>
+        <td><?php echo $mostrar['MOTIVO PROTE'] ?></td>
+        <td><?php echo $mostrar['FECHA NOTI'] ?></td>
+        <td><?php echo $mostrar['FECHA VENCI'] ?></td>
         <td><?php echo $mostrar['PROVEEDOR'] ?></td>
       </tr>
 
